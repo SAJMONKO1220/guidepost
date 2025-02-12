@@ -17,12 +17,14 @@
             margin: 0;
         }
         .container {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 20px;
+            max-width: 600px;
         }
         .card {
             background-color: #1e1e1e;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
@@ -32,17 +34,38 @@
             transform: scale(1.05);
         }
         .card img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
         }
         a {
             text-decoration: none;
             color: #ffffff;
             display: block;
         }
+        .bongo-cat {
+            position: absolute;
+            top: calc(50vh - 250px); /* Position it slightly above "Guidepost" */
+            left: calc(50% - 10px); /* Slightly to the left of center */
+            transform: translateX(-50%) rotate(-11deg); /* Rotate by -11 degrees */
+            transition: transform 0.3s;
+        }
+        .translator {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #1e1e1e;
+            padding: 10px;
+            border-radius: 5px;
+        }
     </style>
+    <script>
+        function rotateBongo(angle) {
+            document.querySelector('.bongo-cat').style.transform = `translateX(-50%) rotate(${angle}deg)`;
+        }
+    </script>
 </head>
 <body>
+    <img src="https://media.tenor.com/fYg91qBpDdgAAAAj/bongo-cat-transparent.gif" alt="Bongo Cat" class="bongo-cat">
     <h1>Guidepost</h1>
     <div class="container">
         <div class="card">
@@ -70,6 +93,9 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam Marketplace">
             </a>
         </div>
+    </div>
+    <div class="translator">
+        <a href="https://translate.google.com/" target="_blank">Google Translate</a>
     </div>
 </body>
 </html>

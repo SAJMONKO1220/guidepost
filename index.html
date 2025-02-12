@@ -21,6 +21,7 @@
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 20px;
             max-width: 600px;
+            margin-top: 40px; /* Adjusted to prevent overlap with the search bar */
         }
         .card {
             background-color: #1e1e1e;
@@ -44,18 +45,36 @@
         }
         .bongo-cat {
             position: absolute;
-            top: calc(50vh - 250px); /* Position it slightly above "Guidepost" */
+            top: calc(50vh - 300px); /* Position it slightly above "Guidepost" */
             left: calc(50% - 10px); /* Slightly to the left of center */
             transform: translateX(-50%) rotate(-11deg); /* Rotate by -11 degrees */
             transition: transform 0.3s;
         }
-        .translator {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
+        .search-bar {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 10px;
+            width: 45%; /* Adjusted width to match cards' size */
+        }
+        .search-bar input {
+            background-color: #121212;
+            color: white;
+            border: none;
             padding: 10px;
             border-radius: 5px;
+            width: 100%;
+        }
+        .search-bar input:focus {
+            outline: none;
+            background-color: #333;
+        }
+        .search-bar img {
+            width: 20px;
+            height: 40px;
         }
     </style>
     <script>
@@ -67,15 +86,14 @@
 <body>
     <img src="https://media.tenor.com/fYg91qBpDdgAAAAj/bongo-cat-transparent.gif" alt="Bongo Cat" class="bongo-cat">
     <h1>Guidepost</h1>
+    <!-- Search bar with form submission to Google -->
+    <form class="search-bar" action="https://www.google.com/search" method="get">
+        <input type="text" name="q" placeholder="Search..." />
+    </form>
     <div class="container">
         <div class="card">
             <a href="https://www.instagram.com/direct/inbox/">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-            </a>
-        </div>
-        <div class="card">
-            <a href="https://www.google.com">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
             </a>
         </div>
         <div class="card">
@@ -93,9 +111,12 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam Marketplace">
             </a>
         </div>
-    </div>
-    <div class="translator">
-        <a href="https://translate.google.com/" target="_blank">Google Translate</a>
+        <!-- Google Translate Card with custom icon -->
+        <div class="card">
+            <a href="https://translate.google.com/">
+                <img src="https://www.commbox.io/wp-content/uploads/2023/11/commbox-app-centrer-icons-Google-Translate-28.png" alt="Google Translate">
+            </a>
+        </div>
     </div>
 </body>
 </html>
